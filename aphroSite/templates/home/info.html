@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Info | Aphrodite's Temple{% endblock %}
+
+{% block content %}
+    <main class="page-shell subpage-shell">
+        <p class="eyebrow">03 / A NOTE FROM THE CREATOR</p>
+        <h1>Info</h1>
+        <p class="subpage-intro">Welcome to Aphrodite's little corner of the internet.</p>
+        <div class="info-columns">
+            <section class="future-note">
+                <p class="eyebrow">THE PROFILE</p>
+                <h2>A place to be a person online.</h2>
+                <p>Friends, favorite things, and small updates, all gathered on one personal page.</p>
+            </section>
+            <section class="future-note info-magic-note">
+                <p class="eyebrow">THE MAGIC</p>
+                <h2>A project in progress.</h2>
+                <p>The Magic page is reserved for a keystream cipher experiment.</p>
+                <a href="{% url 'home:magic' %}">Visit the Magic page</a>
+            </section>
+        </div>
+    </main>
+{% endblock %}

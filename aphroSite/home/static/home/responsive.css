@@ -1,0 +1,168 @@
+@media (max-width: 760px) {
+    .magic-workbench {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .cipher-placeholder {
+        min-height: 88px;
+    }
+}
+
+@media (max-width: 760px) {
+    .site-header-inner {
+        padding: 7px 12px;
+    }
+
+    .main-nav {
+        gap: 0;
+        padding: 0;
+    }
+
+    .main-nav a {
+        min-height: 34px;
+        gap: 5px;
+        padding: 6px 7px;
+        font-size: 10px;
+    }
+
+    .profile-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .profile-rail {
+        display: block;
+        max-width: 440px;
+        margin: 0 auto;
+    }
+
+    .domain-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 520px) {
+    .site-frame {
+        width: calc(100% - 52px);
+        margin: 14px auto;
+        padding: 4px;
+    }
+
+    .site-header,
+    .site-header-inner {
+        border-radius: 19px 19px 0 0;
+    }
+
+    .site-header-inner {
+        padding: 7px 9px;
+    }
+
+    .wordmark {
+        font-size: 24px;
+    }
+
+    .main-nav {
+        gap: 0;
+        padding: 0;
+    }
+
+    .main-nav a {
+        min-height: 32px;
+        gap: 4px;
+        padding: 5px 4px;
+        font-size: 9px;
+    }
+
+    .nav-link-label {
+        font-size: 9px;
+    }
+
+    .page-shell {
+        padding: 18px 14px 30px;
+    }
+
+    .subpage-shell > h1 {
+        font-size: 40px;
+    }
+
+    .profile-topline {
+        align-items: start;
+        gap: 10px;
+        font-size: 9px;
+    }
+
+    .profile-heading h1 {
+        font-size: 43px;
+    }
+
+    .mood-note {
+        min-width: 125px;
+        padding: 10px;
+    }
+
+    .profile-rail {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .status-note {
+        min-height: 100px;
+    }
+
+    .power-panel {
+        min-height: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 21px 17px;
+    }
+
+    .power-panel h2 { font-size: 29px; }
+    .domain-grid { grid-template-columns: minmax(0, 1fr); }
+
+    .friend-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .info-columns {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .section-heading h2 {
+        font-size: 22px;
+    }
+
+    .section-heading > span {
+        max-width: 125px;
+        line-height: 1.5;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .petal-field .falling-petal {
+        animation-name: petal-fall-gentle;
+        animation-duration: 48s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+    .falling-petal:nth-child(1) { animation-delay: 0s; }
+    .falling-petal:nth-child(2) { animation-delay: 28s; }
+    .falling-petal:nth-child(3) { animation-delay: 8s; }
+    .falling-petal:nth-child(4) { animation-delay: 40s; }
+    .falling-petal:nth-child(5) { animation-delay: 16s; }
+    .falling-petal:nth-child(6) { animation-delay: 24s; }
+    .falling-petal:nth-child(7) { animation-delay: 44s; }
+    .falling-petal:nth-child(8) { animation-delay: 12s; }
+    .falling-petal:nth-child(9) { animation-delay: 32s; }
+    .falling-petal:nth-child(10) { animation-delay: 4s; }
+    .falling-petal:nth-child(11) { animation-delay: 36s; }
+    .falling-petal:nth-child(12) { animation-delay: 20s; }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@keyframes petal-fall-gentle {
+    from { top: -8vh; }
+    to { top: 112vh; }
+}

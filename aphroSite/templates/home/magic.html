@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Magic | Aphrodite's Temple{% endblock %}
+
+{% block content %}
+    <main class="page-shell subpage-shell magic-page">
+        <p class="eyebrow">02 / MAGIC GIRDLE</p>
+        <h1>Aphrodite's Magic Girdle</h1>
+        <p class="subpage-intro">Offer a true thought to the sea. The Girdle will return it in cipher. There are three (3) words that will NOT cipher .</p>
+
+        <div class="magic-workbench">
+            <form class="magic-form" method="post"{% if static_build %} data-static-mode="true" novalidate{% endif %}>
+                {% if not static_build %}{% csrf_token %}{% endif %}
+                <div class="magic-field">
+                    <label for="{{ form.thoughts.id_for_label }}">Your true thoughts</label>
+                    {{ form.thoughts }}
+                    {% for error in form.thoughts.errors %}
+                        <p class="form-error" role="alert">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                <p class="form-note">Your submission is processed for this response and is not saved.</p>
+                <button class="magic-submit" type="submit">Gaze into her Girdle <span aria-hidden="true">&gt;</span></button>
+            </form>
+
+            {% if result %}
+                <section class="cipher-output" aria-live="polite" aria-label="Cipher results">
+                    <div class="cipher-output-step">
+                        <p class="eyebrow">01 / PLAINTEXT</p>
+                        <h2>Your thoughts</h2>
+                        <pre class="cipher-plaintext">{{ submitted_thoughts }}</pre>
+                    </div>
+                    <div class="cipher-output-step">
+                        <p class="eyebrow">02 / ANCIENT GREEK</p>
+                        <h2>Veiled key</h2>
+                        <div class="cipher-key-wrap">
+                            <pre class="cipher-key"><span class="cipher-key-letters">{{ result.decoy_greek }}<span class="key-dust" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></span></span></pre>
+                        </div>
+                    </div>
+                    <div class="cipher-output-step">
+                        <p class="eyebrow">03 / CIPHERTEXT</p>
+                        <h2>"Your thoughts"</h2>
+                        <pre class="cipher-text"><span class="cipher-text-letters">{{ result.ciphertext }}<span class="key-dust" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></span></span></pre>
+                    </div>
+                </section>
+            {% else %}
+                <section class="cipher-placeholder" aria-live="polite">
+                    <p class="eyebrow">THE GIRDLE ANSWERS</p>
+                    <p>Aphrodite awaits an offering.</p>
+                </section>
+            {% endif %}
+        </div>
+    </main>
+    {% if static_build %}
+        {{ cipher_config|json_script:"cipher-config" }}
+        <script src="{% static 'home/magic.js' %}" defer></script>
+    {% endif %}
+{% endblock %}

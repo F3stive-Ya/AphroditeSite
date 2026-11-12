@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}{{ profile.name }} | Aphrodite's Temple{% endblock %}
+
+{% block content %}
+    <main class="page-shell" id="profile">
+        <div class="profile-topline">
+            <p><span class="eyebrow">DIVINE PROFILE</span><span class="crumb-mark">/</span> {{ profile.handle }}</p>
+            <p class="topline-status"><span class="online-dot"></span> SEA-BORN</p>
+        </div>
+
+        <section class="profile-heading" aria-labelledby="profile-name">
+            <div>
+                <p class="eyebrow">{{ profile.tagline }}</p>
+                <h1 id="profile-name">{{ profile.name }}</h1>
+                <p class="profile-handle">{{ profile.handle }}</p>
+            </div>
+            <div class="mood-note">
+                <span class="eyebrow">HER SPHERE</span>
+                <strong>{{ profile.mood }}</strong>
+            </div>
+        </section>
+
+        <div class="profile-layout">
+            <aside class="profile-rail" aria-label="Profile card">
+                <article class="identity-card">
+                    <div class="portrait-frame">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Marble_statue_of_Aphrodite_MET_DP142564.jpg" alt="Full marble statue of Aphrodite, with a small figure beside her feet" fetchpriority="high">
+                    </div>
+                    <div class="identity-copy">
+                        <p class="eyebrow">ROMAN MARBLE, 1ST-2ND CENTURY A.D.</p>
+                        <p class="location-line">{{ profile.location }}</p>
+                        <a class="artwork-credit" href="https://commons.wikimedia.org/wiki/File:Marble_statue_of_Aphrodite_MET_DP142564.jpg" target="_blank" rel="noopener noreferrer">The Met Open Access, CC0</a>
+                    </div>
+                    <div class="identity-actions">
+                        <a class="action-primary" href="#power">Her power</a>
+                        <a class="action-secondary" href="#symbols">Symbols</a>
+                    </div>
+                    <dl class="profile-facts">
+                        <div><dt>Origin</dt><dd>{{ profile.origin }}</dd></div>
+                        <div><dt>Sphere</dt><dd>{{ profile.sphere }}</dd></div>
+                    </dl>
+                </article>
+            </aside>
+
+            <div class="profile-content">
+                <section class="power-panel" id="power" aria-labelledby="power-title">
+                    <div>
+                        <p class="eyebrow">THE SOURCE OF HER INFLUENCE</p>
+                        <h2 id="power-title">{{ profile.headline }}</h2>
+                        <p>{{ profile.power_description }}</p>
+                    </div>
+                    <a class="power-link" href="{% url 'home:magic' %}">Enter Magic <span aria-hidden="true">&gt;</span></a>
+                </section>
+
+                <section class="content-section" id="about">
+                    <div class="section-heading"><h2>Her nature</h2><span>01</span></div>
+                    <p class="about-copy">{{ profile.about }}</p>
+                </section>
+
+                <section class="content-section" id="domains">
+                    <div class="section-heading"><h2>Domains</h2><span>02</span></div>
+                    <div class="domain-grid">
+                        {% for domain in profile.domains %}
+                            <article class="domain-card">
+                                <h3>{{ domain.name }}</h3>
+                                <p>{{ domain.description }}</p>
+                            </article>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section class="content-section" id="symbols">
+                    <div class="section-heading"><h2>Symbols</h2><span>03</span></div>
+                    <ul class="symbol-list">
+                        {% for symbol in profile.symbols %}
+                            <li>{{ symbol }}</li>
+                        {% endfor %}
+                    </ul>
+                </section>
+
+                <section class="content-section" id="friends">
+                    <div class="section-heading"><h2>Allies</h2><span>{{ profile.friends|length }} FIGURES IN HER MYTH</span></div>
+                    <div class="friend-grid">
+                        {% for friend in profile.friends %}
+                            <article class="friend-item">
+                                <div class="friend-avatar friend-avatar-{{ forloop.counter }}" aria-hidden="true">{{ friend.initials }}</div>
+                                <div><h3>{{ friend.name }}</h3><p>{{ friend.note }}</p></div>
+                            </article>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section class="content-section comments-section" id="comments">
+                    <div class="section-heading"><h2>Comments</h2><span>LEAVE SOME LOVE</span></div>
+                    {% for comment in profile.comments %}
+                        <article class="comment-item">
+                            <div class="comment-avatar" aria-hidden="true">{{ comment.initials }}</div>
+                            <div class="comment-body">
+                                <div class="comment-meta"><h3>{{ comment.name }}</h3><time>{{ comment.time }}</time></div>
+                                <p>{{ comment.message }}</p>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </section>
+                <footer class="profile-footer">Stay golden. <span>Love, {{ profile.name }}</span></footer>
+            </div>
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Aphrodite's Temple{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'home/site.css' %}">
+    <link rel="stylesheet" href="{% static 'home/pages.css' %}">
+    <link rel="stylesheet" href="{% static 'home/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'home/responsive.css' %}">
+</head>
+<body>
+    <div class="petal-field" aria-hidden="true">
+        <span class="falling-petal"></span>
+        <span class="falling-petal"></span>
+        <span class="falling-petal"></span>
+        <span class="falling-petal"></span>
+        <span class="falling-petal"></span>
+        <span class="falling-petal"></span>
+        <span class="falling-petal"></span>
+        <span class="falling-petal"></span>
+        <span class="falling-petal"></span>
+        <span class="falling-petal"></span>
+        <span class="falling-petal"></span>
+        <span class="falling-petal"></span>
+    </div>
+    <div class="site-frame">
+        <header class="site-header">
+            <div class="site-header-inner">
+                <div class="seafoam-bed" aria-hidden="true">
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                    <span class="foam-bubble"></span>
+                </div>
+                <a class="wordmark" href="{% url 'home:index' %}" aria-label="Aphrodite profile home">aphrodite<span>.net</span></a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a class="nav-link nav-home{% if request.resolver_match.url_name == 'index' %} is-active{% endif %}" href="{% url 'home:index' %}">
+                    <span class="nav-arrow" aria-hidden="true">&gt;</span><span class="nav-link-label">Profile / Home</span>
+                </a>
+                <a class="nav-link nav-magic{% if request.resolver_match.url_name == 'magic' %} is-active{% endif %}" href="{% url 'home:magic' %}">
+                    <span class="nav-arrow" aria-hidden="true">&gt;</span><span class="nav-link-label">Magic</span>
+                </a>
+                <a class="nav-link nav-info{% if request.resolver_match.url_name == 'info' %} is-active{% endif %}" href="{% url 'home:info' %}">
+                    <span class="nav-arrow" aria-hidden="true">&gt;</span><span class="nav-link-label">Info</span>
+                </a>
+            </nav>
+        </header>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
