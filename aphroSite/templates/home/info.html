@@ -4,20 +4,41 @@
 
 {% block content %}
     <main class="page-shell subpage-shell">
-        <p class="eyebrow">03 / A NOTE FROM THE CREATOR</p>
+        <p class="eyebrow">03 / A NOTE FROM THE APHRODITE</p>
         <h1>Info</h1>
-        <p class="subpage-intro">Welcome to Aphrodite's little corner of the internet.</p>
+        <p class="subpage-intro">I'm so happy to have you in my temple!</p>
         <div class="info-columns">
             <section class="future-note">
                 <p class="eyebrow">THE PROFILE</p>
-                <h2>A place to be a person online.</h2>
+                <h2>My space to be myself online.</h2>
                 <p>Friends, favorite things, and small updates, all gathered on one personal page.</p>
+            </section>
+            <section class="future-note">
+                <p class="eyebrow">THE JOURNAL</p>
+                <h2>Notes from the Aegean.</h2>
+                <p>Read my latest stories and thoughts from the shore.</p>
+                <a href="{% url 'home:index' %}#blog">Visit the blog</a>
             </section>
             <section class="future-note info-magic-note">
                 <p class="eyebrow">THE MAGIC</p>
-                <h2>A project in progress.</h2>
-                <p>The Magic page is reserved for a keystream cipher experiment.</p>
+                <h2>Try to resist my magic girdle!</h2>
+                <p>Offer your true thought to the sea, and see how it changes.</p>
                 <a href="{% url 'home:magic' %}">Visit the Magic page</a>
+            </section>
+            <section class="future-note info-magic-note">
+                <p class="eyebrow">HOW THE MAGIC WORKS</p>
+                <h2>Keystream Cipher</h2>
+                <p>Keystream Ciphers work on the principle of every letter in the english alphabet being assigned some integer value.</p>
+                <p>For example, A = 00, B = 01, .... Z = 25.</p>
+                <p>We have three components: a plaintext [original message], a keystream, and a ciphertext. [encrypted message]</p>
+                <p>The keystream can be one of two options, randomly generated, or by word</p>
+                <p>For this cipher, the keystream is simply "aphrodite". Notice how the first letter of the plaintext will always be the same as the ciphertext.</p>
+                <p>For every letter inputted, the letter is converted for it's integer value, and every letter of the keystream is converted</p>
+                <p>For messages greater in length then our keystream, the keystream simply repeats. Ex. [aprhoditeaphr]</p>
+                <p>To Achieve our ciphertext, we simply add the corresponding plaintext and keystream integer values together, then apply modulo26 on the result.</p>
+                <p>Modulo26 is extremely important for this cipher to work, as it sets our contraints [26 letters in the english alphabet]</p>
+                <p>Therefore, special characters will NOT cipher.</p>
+                <p>However, as per the myth, some cannot be decieved ;]</p>
             </section>
         </div>
     </main>

@@ -23,6 +23,24 @@ class HomePageTests(TestCase):
 		self.assertContains(response, 'href="/info/"')
 		self.assertContains(response, 'Domains')
 
+	def test_profile_includes_journal(self):
+		response = self.client.get('/')
+
+		self.assertEqual(response.status_code, 200)
+		self.assertContains(response, 'id="blog"')
+		self.assertContains(response, 'The most beautiful woman!')
+		self.assertContains(response, 'Prayers from Lesbos')
+		self.assertNotContains(response, 'nav-link-label">Blog</span>')
+		self.assertContains(response, 'Liked by</span> Eros, Psyche')
+		self.assertContains(response, 'Liked by</span> The Muses, The Graces')
+
+	def test_info_page_links_to_journal(self):
+		response = self.client.get('/info/')
+
+		self.assertEqual(response.status_code, 200)
+		self.assertContains(response, 'THE JOURNAL')
+		self.assertContains(response, 'href="/#blog">Visit the blog</a>')
+
 	def test_magic_and_info_pages_render(self):
 		for path, heading in [('/magic/', "Aphrodite's Magic Girdle"), ('/info/', 'Info')]:
 			with self.subTest(path=path):
@@ -76,6 +94,11 @@ class BuildStaticTests(SimpleTestCase):
 			self.assertIn('href="/GodsDev/static/home/site.css"', index_html)
 			self.assertIn('href="/GodsDev/magic/"', index_html)
 			self.assertIn('href="/GodsDev/info/"', index_html)
+			self.assertNotIn('nav-link-label">Blog</span>', index_html)
+			self.assertIn('id="blog"', index_html)
+
+			info_html = (output_dir / 'info' / 'index.html').read_text(encoding='utf-8')
+			self.assertIn('href="/GodsDev/#blog">Visit the blog</a>', info_html)
 
 			magic_html = (output_dir / 'magic' / 'index.html').read_text(encoding='utf-8')
 			self.assertIn('data-static-mode="true"', magic_html)

@@ -5,13 +5,13 @@ from .forms import GirdleForm
 
 def index(request):
     profile = {
-        'name': 'Aphrodite',
+        'name': 'Aphrodite (\u1f08\u03c6\u03c1\u03bf\u03b4\u03af\u03c4\u03b7)',
         'handle': '@aphroditebythesea',
         'location': 'The Aegean Sea',
         'mood': 'sea-born and sovereign',
         'tagline': 'Goddess of love, desire, and beauty',
         'headline': 'The force that draws the world together.',
-        'about': 'Born from sea foam, Aphrodite embodies more than romance. Her power is attraction: the pull that reshapes loyalties, choices, and the course of a myth. The myth says that she was born by Cyprus, emerging from sea foam created by her Fathers genitals.',
+        'about': 'Born from sea foam, I embody more than romance. My power is attraction: the pull that reshapes loyalties, choices, and the course of a myth.',
         'origin': 'Born from sea foam',
         'sphere': 'Love, desire, beauty',
         'domains': [
@@ -25,7 +25,7 @@ def index(request):
             'Myrtle',
             'Seashell',
         ],
-        'power_description': 'Come see how Aphrodites magic gilder can hide the true thoughts of any mortal!',
+        'power_description': 'Come see how my magic girdle can effect the true thoughts of any mortal!',
         'friends': [
             {'name': 'Eros', 'note': 'the spark', 'initials': 'ER'},
             {'name': 'Psyche', 'note': 'love made mortal', 'initials': 'PS'},
@@ -42,7 +42,7 @@ def index(request):
             {
                 'name': 'Eros',
                 'time': '2 hours ago',
-                'message': 'Found the prettiest shell for your collection. Saving it for you!',
+                'message': 'Found the prettiest shell for your collection Mom. Saving it for you!',
                 'initials': 'ER',
             },
             {
@@ -51,6 +51,26 @@ def index(request):
                 'message': 'That spear was so heavy! Im still sore!',
                 'initials': 'AS',
             },
+        ],
+        'posts': [
+            {
+                'category': 'FROM THE TEMPLE',
+                'title': 'The most beautiful woman!',
+                'body': 'Last night after I had finished bathing, I caught a glimpse of the most beautiful woman! After closer inspection, it turned out to be a mirror.',
+                'liked_by': ['Eros', 'Psyche', 'Aphrodite'],
+            },
+            {
+                'category': 'NEW PRAYERS',
+                'title': 'Prayers from Lesbos',
+                'body': 'Ive been receiving prayer requests from Lesbos lately. Some poet named Sappho pleading for my help in her romantic life. Still undecided to help.',
+                'liked_by': ['The Muses', 'The Graces', 'Eros'],
+            },
+            {
+                'category': 'A LAUGH FROM MY LIFE',
+                'title': 'A funny trick from my son',
+                'body': 'Earlier, Ares was trying to impress me. Eros gave him a spear to hold, and he could barely lift it!',
+                'liked_by':['Eros','Psyche','Zeus'],
+            }
         ],
     }
     return render(request, 'home/index.html', {'profile': profile})

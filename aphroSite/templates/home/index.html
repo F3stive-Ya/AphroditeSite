@@ -16,7 +16,7 @@
                 <p class="profile-handle">{{ profile.handle }}</p>
             </div>
             <div class="mood-note">
-                <span class="eyebrow">HER SPHERE</span>
+                <span class="eyebrow">MY SPHERE</span>
                 <strong>{{ profile.mood }}</strong>
             </div>
         </section>
@@ -33,7 +33,7 @@
                         <a class="artwork-credit" href="https://commons.wikimedia.org/wiki/File:Marble_statue_of_Aphrodite_MET_DP142564.jpg" target="_blank" rel="noopener noreferrer">The Met Open Access, CC0</a>
                     </div>
                     <div class="identity-actions">
-                        <a class="action-primary" href="#power">Her power</a>
+                        <a class="action-primary" href="#power">My power</a>
                         <a class="action-secondary" href="#symbols">Symbols</a>
                     </div>
                     <dl class="profile-facts">
@@ -41,12 +41,23 @@
                         <div><dt>Sphere</dt><dd>{{ profile.sphere }}</dd></div>
                     </dl>
                 </article>
+                <section class="content-section" id="domains">
+                    <div class="section-heading"><h2>Domains</h2><span>02</span></div>
+                    <div class="domain-grid" style="display: grid; grid-template-columns: 1fr;">
+                        {% for domain in profile.domains %}
+                            <article class="domain-card" style="width: 100%;">
+                                <h3>{{ domain.name }}</h3>
+                                <p>{{ domain.description }}</p>
+                            </article>
+                        {% endfor %}
+                    </div>
+                </section>
             </aside>
 
             <div class="profile-content">
                 <section class="power-panel" id="power" aria-labelledby="power-title">
                     <div>
-                        <p class="eyebrow">THE SOURCE OF HER INFLUENCE</p>
+                        <p class="eyebrow">THE SOURCE OF MY INFLUENCE</p>
                         <h2 id="power-title">{{ profile.headline }}</h2>
                         <p>{{ profile.power_description }}</p>
                     </div>
@@ -54,17 +65,20 @@
                 </section>
 
                 <section class="content-section" id="about">
-                    <div class="section-heading"><h2>Her nature</h2><span>01</span></div>
+                    <div class="section-heading"><h2>My nature</h2><span>01</span></div>
                     <p class="about-copy">{{ profile.about }}</p>
                 </section>
 
-                <section class="content-section" id="domains">
-                    <div class="section-heading"><h2>Domains</h2><span>02</span></div>
-                    <div class="domain-grid">
-                        {% for domain in profile.domains %}
-                            <article class="domain-card">
-                                <h3>{{ domain.name }}</h3>
-                                <p>{{ domain.description }}</p>
+                <section class="content-section" id="blog" aria-labelledby="blog-title">
+                    <div class="section-heading"><h2 id="blog-title">Blog</h2><span>RECENT THOUGHTS</span></div>
+                    <div class="blog-list">
+                        {% for post in profile.posts %}
+                            <article class="blog-post">
+                                <p class="eyebrow">{{ post.category }}</p>
+                                <h3>{{ post.title }}</h3>
+                                <p class="blog-excerpt">{{ post.excerpt }}</p>
+                                <p class="blog-body">{{ post.body }}</p>
+                                <p class="blog-likes"><span>Liked by</span> {{ post.liked_by|join:", " }}</p>
                             </article>
                         {% endfor %}
                     </div>
