@@ -15,7 +15,7 @@ class HomePageTests(TestCase):
 		self.assertEqual(response.status_code, 200)
 		self.assertTemplateUsed(response, 'home/index.html')
 		self.assertTemplateUsed(response, 'base.html')
-		self.assertContains(response, '<h1 id="profile-name">Aphrodite</h1>')
+		self.assertContains(response, '<h1 id="profile-name">Aphrodite (Ἀφροδίτη)</h1>')
 		self.assertContains(response, 'Full marble statue of Aphrodite')
 		self.assertContains(response, 'The force that draws the world together.')
 		self.assertContains(response, 'Profile / Home')
