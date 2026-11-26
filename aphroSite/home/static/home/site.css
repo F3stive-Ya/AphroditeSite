@@ -30,14 +30,14 @@ body {
     background-attachment: fixed;
     font-family: var(--sans);
     -webkit-font-smoothing: antialiased;
-    cursor: url("cursor.png") 3 2, auto;
+    cursor: url("cursor.png") 11 14, auto;
 }
 
 a,
 button,
 input[type="submit"],
 input[type="button"] {
-    cursor: url("cursor.png") 3 2, pointer;
+    cursor: url("cursor.png") 11 14, pointer;
 }
 
 input,
