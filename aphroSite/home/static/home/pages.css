@@ -175,7 +175,7 @@
     border: 2px outset #e8cdda;
     border-radius: 8px;
     font: 12px var(--mono);
-    cursor: pointer;
+    cursor: url("cursor.png") 3 2, pointer;
 }
 
 .magic-submit:hover,
