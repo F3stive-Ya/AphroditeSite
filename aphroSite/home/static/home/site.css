@@ -30,6 +30,19 @@ body {
     background-attachment: fixed;
     font-family: var(--sans);
     -webkit-font-smoothing: antialiased;
+    cursor: url("cursor.svg") 3 2, auto;
+}
+
+a,
+button,
+input[type="submit"],
+input[type="button"] {
+    cursor: url("cursor.svg") 3 2, pointer;
+}
+
+input,
+textarea {
+    cursor: text;
 }
 
 .petal-field {
